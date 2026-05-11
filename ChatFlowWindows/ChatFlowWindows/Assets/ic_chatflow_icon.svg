@@ -1,0 +1,132 @@
+<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <!-- Gradients for depth and modern look -->
+    <linearGradient id="meshGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2563eb;stop-opacity:1" />
+    </linearGradient>
+    
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#2563eb;stop-opacity:0" />
+    </radialGradient>
+    
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.15" flood-color="#000000" />
+    </filter>
+    
+    <filter id="innerShadow">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="coloredBlur"/>
+      <feFlood in="coloredBlur" flood-color="#ffffff" flood-opacity="0.3" result="offsetblur"/>
+      <feComposite in="offsetblur" in2="SourceGraphic" operator="in" result="offsetblur"/>
+      <feFlood flood-color="#06b6d4" flood-opacity="0.2" result="color"/>
+      <feComposite in="color" in2="offsetblur" operator="in" result="shadow"/>
+    </filter>
+  </defs>
+  
+  <!-- Transparent background -->
+  <rect width="512" height="512" fill="none"/>
+  
+  <!-- Background glow effect -->
+  <circle cx="256" cy="256" r="200" fill="url(#centerGlow)"/>
+  
+  <!-- Outer mesh nodes (representing network peers) -->
+  <!-- Top node -->
+  <circle cx="256" cy="90" r="20" fill="url(#meshGradient)" opacity="0.9"/>
+  <circle cx="256" cy="90" r="15" fill="white" opacity="0.15"/>
+  
+  <!-- Top-right node -->
+  <circle cx="378" cy="134" r="20" fill="url(#meshGradient)" opacity="0.85"/>
+  <circle cx="378" cy="134" r="15" fill="white" opacity="0.12"/>
+  
+  <!-- Right node -->
+  <circle cx="422" cy="256" r="20" fill="url(#meshGradient)" opacity="0.9"/>
+  <circle cx="422" cy="256" r="15" fill="white" opacity="0.15"/>
+  
+  <!-- Bottom-right node -->
+  <circle cx="378" cy="378" r="20" fill="url(#meshGradient)" opacity="0.85"/>
+  <circle cx="378" cy="378" r="15" fill="white" opacity="0.12"/>
+  
+  <!-- Bottom node -->
+  <circle cx="256" cy="422" r="20" fill="url(#meshGradient)" opacity="0.9"/>
+  <circle cx="256" cy="422" r="15" fill="white" opacity="0.15"/>
+  
+  <!-- Bottom-left node -->
+  <circle cx="134" cy="378" r="20" fill="url(#meshGradient)" opacity="0.85"/>
+  <circle cx="134" cy="378" r="15" fill="white" opacity="0.12"/>
+  
+  <!-- Left node -->
+  <circle cx="90" cy="256" r="20" fill="url(#meshGradient)" opacity="0.9"/>
+  <circle cx="90" cy="256" r="15" fill="white" opacity="0.15"/>
+  
+  <!-- Top-left node -->
+  <circle cx="134" cy="134" r="20" fill="url(#meshGradient)" opacity="0.85"/>
+  <circle cx="134" cy="134" r="15" fill="white" opacity="0.12"/>
+  
+  <!-- Mesh connection lines (flowing pattern) -->
+  <g stroke="url(#meshGradient)" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.6">
+    <!-- Star connections to outer nodes -->
+    <line x1="256" y1="160" x2="256" y2="90"/>
+    <line x1="308" y1="182" x2="378" y2="134"/>
+    <line x1="345" y1="211" x2="422" y2="256"/>
+    <line x1="308" y1="330" x2="378" y2="378"/>
+    <line x1="256" y1="352" x2="256" y2="422"/>
+    <line x1="204" y1="330" x2="134" y2="378"/>
+    <line x1="167" y1="211" x2="90" y2="256"/>
+    <line x1="204" y1="182" x2="134" y2="134"/>
+  </g>
+  
+  <!-- Second ring of mesh lines (diagonal connections) -->
+  <g stroke="url(#meshGradient)" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.35">
+    <!-- Connecting outer nodes -->
+    <line x1="256" y1="90" x2="378" y2="134"/>
+    <line x1="378" y1="134" x2="422" y2="256"/>
+    <line x1="422" y2="256" x2="378" y2="378"/>
+    <line x1="378" y1="378" x2="256" y2="422"/>
+    <line x1="256" y1="422" x2="134" y2="378"/>
+    <line x1="134" y1="378" x2="90" y2="256"/>
+    <line x1="90" y1="256" x2="134" y2="134"/>
+    <line x1="134" y1="134" x2="256" y2="90"/>
+  </g>
+  
+  <!-- Central secure core (lock icon merged with shield) -->
+  <g filter="url(#shadow)">
+    <!-- Central circle with gradient -->
+    <circle cx="256" cy="256" r="85" fill="url(#meshGradient)"/>
+    
+    <!-- Inner lighter circle for depth -->
+    <circle cx="256" cy="256" r="80" fill="url(#meshGradient)" opacity="0.95"/>
+    
+    <!-- Highlight circle -->
+    <circle cx="256" cy="240" r="75" fill="white" opacity="0.08"/>
+  </g>
+  
+  <!-- Lock icon (security symbol) -->
+  <g transform="translate(256, 256)">
+    <!-- Lock body -->
+    <rect x="-28" y="-10" width="56" height="50" rx="6" fill="white" opacity="0.95"/>
+    
+    <!-- Lock shackle (top rounded part) -->
+    <path d="M -18 -10 Q -18 -35 0 -35 Q 18 -35 18 -10" 
+          fill="none" stroke="white" stroke-width="5" stroke-linecap="round" opacity="0.95"/>
+    
+    <!-- Lock hole (keyhole dot) -->
+    <circle cx="0" cy="15" r="4" fill="white" opacity="0.9"/>
+    
+    <!-- Subtle wave pattern inside lock (representing wireless/encryption) -->
+    <g stroke="white" stroke-width="2" fill="none" opacity="0.6" stroke-linecap="round">
+      <path d="M -10 8 Q -8 5 -6 8"/>
+      <path d="M 6 8 Q 8 5 10 8"/>
+      <path d="M -10 20 Q -8 17 -6 20"/>
+      <path d="M 6 20 Q 8 17 10 20"/>
+    </g>
+  </g>
+  
+  <!-- Subtle wave emanation lines (Bluetooth/wireless indication) -->
+  <g stroke="url(#meshGradient)" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.4">
+    <path d="M 256 170 Q 280 170 290 190" transform-origin="256 256"/>
+    <path d="M 256 160 Q 295 160 310 190" transform-origin="256 256"/>
+    <path d="M 256 322 Q 280 322 290 302" transform-origin="256 256"/>
+    <path d="M 256 332 Q 295 332 310 302" transform-origin="256 256"/>
+  </g>
+</svg>
